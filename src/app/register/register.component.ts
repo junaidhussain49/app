@@ -60,7 +60,7 @@ export class RegisterComponent implements OnInit {
       'name': new FormControl('', [
         Validators.required,
         Validators.minLength(4),
-         // <-- Here's how you pass in the custom validator.
+         
       ]),
       
     });
