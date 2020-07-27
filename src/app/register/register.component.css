@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+
+
+body  {
+    margin: 0;
+    font-family: "Monsterrat", "san-serif";
+    font-size: 18px ;
+
+}
+
+.container {
+    width: 2000px;
+    height: 1000px;
+    margin: 0 auto;
+    border: medium;
+}
+
+
+h2{
+    font-family: 'Monsterrat' ,'san-serif';
+    font-size: 25px;    
+}
+
+label {
+    font-family: "Monsterrat", "san-serif";
+    
+}

@@ -1,0 +1,93 @@
+<form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <h4>Vendor</h4>
+        <br>
+    </div>
+    <div class="form-group">   
+        <label> Name</label>
+        <input id="name" fromControlName="name" class="form-control" required minlength="4" >
+    </div>
+    <div class="form-group" FormGroupName="shipping">
+        <div class="form-row"></div>
+        <label>Shipping methhod</label>
+        <select fromControlName="shipping" class="form-control">
+            <option value=""></option>
+            <option>Express</option>
+            <option>Normal</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label >Payment</label>
+        <select fromControlName="payment"  class="form-control"  >
+            <option value=""></option>
+            <option *ngFor="let payment of p" > {{ payment }} </option>
+        </select>
+        <label>Sites/Location</label>
+        <select fromControlName="sites"  class="form-control" >
+            <option value="">default</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Document Date:</label>
+        <input id="today" type="date" min="2000-01-01" max="2020-12-31" formGroupForm="ddate">
+        <script>
+            document.getElementById('today').value = moment().format('YYYY-MM-DD');
+        </script>
+        
+        &nbsp;
+            <label >Due date:</label>
+            <input id="today" type="date" min="2000-01-01" max="2020-12-31" formGroupForm="duedate">
+        <script>
+            document.getElementById('today').value = moment().format('YYYY-MM-DD');
+        </script>
+    </div>
+    <div class="form-group">
+        <label>POStatus</label>
+        <input type="text"  fromControlName="status"   class="form-control" >
+        <label> Work Order Number</label>
+        <input type="text" fromControlName="woNumber"  class="form-control">
+    </div>
+    <div class="container">
+        <div class="list-group-item">
+            <div class="form-group">
+                <div class="form-row" >
+                    <div class="col">
+                        <tr *ngFor="let item of items().controls; let i=index" [fromGroupName]="i">
+                            <div class="form-row" >
+                        <label>Item</label>
+                        <input type="text" fromControlName ='items' class="form-control" >
+                        <button type="button" (click)="addItem()" class="btn btn-success" >+Add</button>
+                    </div>
+                    <div class="col-sm">
+                        <label>Description</label>
+                        <input type="text" fromControlName= 'productDescription' class="form-control">
+                    </div>
+                    <div class="col-sm">
+                        <label>Quantity</label>
+                        <select fromControlName="quantity" class="form-control" >
+                            <option value=""></option>
+                            <option >1</option>
+                        </select>
+                    </div>
+                    <div class="col-sm">
+                        <label>Rate</label>
+                        <input type="text" fromControlName="rate" class="form-control" >
+                   </div>
+                   <div class="col-sm">
+                    <label>Amount</label>
+                    <input type="text" fromControlName="amount" class="form-control" >
+                    </div>
+                    <br>
+                    <br>
+                    <div class="col-sm">
+                        <label >Action:</label>
+                        <br>
+                    </div>
+                    
+                   </tr>
+                </div> 
+            </div>
+        </div>
+    </div> 
+    {{this.dynamicForm.value | json}}
+    <button type="button" (click)="onSubmit()">Submit</button> 
